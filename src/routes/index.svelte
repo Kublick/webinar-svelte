@@ -5,6 +5,17 @@
 <script lang="ts">
 	import Countdown from '$lib/Countdown.svelte';
 	let done = false;
+
+	import Modal from '$lib/Modal.svelte';
+
+	let isOpenModal = false;
+	function openModal() {
+		isOpenModal = true;
+	}
+
+	export function closeModal() {
+		isOpenModal = false;
+	}
 </script>
 
 <svelte:head>
@@ -13,6 +24,8 @@
 </svelte:head>
 
 <main>
+	<Modal {isOpenModal} on:closeModal={closeModal} />
+
 	<section
 		class="py-12 container mx-auto md:bg-gradient-to-r from-primary via-white to-white md:grid md:grid-cols-2 "
 	>
@@ -24,8 +37,9 @@
 			<h2 class="text-2xl text-black md:text-5xl md:py-4 text-center">
 				Los 3 Secretos Para Vender Tu Consulta Con Éxito Online En Internet
 			</h2>
-			<button id="modal-trigger" class="bg-primary py-4 px-8 text-white sm:text-lg rounded-full m-4"
-				>RESERVAR MI LUGAR AHORA</button
+			<button
+				class="bg-primary py-4 px-8 text-white sm:text-lg rounded-full m-4"
+				on:click={openModal}>RESERVAR MI LUGAR AHORA</button
 			>
 			<p class="text-xs">Da click en el botón para registrarte</p>
 		</div>
@@ -124,9 +138,8 @@
 
 		<div class="flex flex-col items-center justify-center flex-1">
 			<button
-				id="modal-trigger2"
 				class="bg-primary py-4 px-8 text-white sm:text-lg rounded-full m-4 "
-				>RESERVAR MI LUGAR AHORA</button
+				on:click={openModal}>RESERVAR MI LUGAR AHORA</button
 			>
 			<p class="text-xs">Da click en el botón para registrarte</p>
 			<p class="text-sm sm:text-base">
@@ -134,13 +147,6 @@
 			</p>
 			<Countdown on:completed={() => (done = true)} />
 			<img src="/images/LogoIncrementaColor.svg" alt="Berenice Bastidas" class="" />
-			<!-- <Counter client:only />
-		
-		</div>
-	</section>
-	<!-- <MyModal triggerId='modal-trigger2'>
-		<Formulario />
-	</MyModal> -->
 		</div>
 	</section>
 </main>

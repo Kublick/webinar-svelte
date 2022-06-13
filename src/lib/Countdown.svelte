@@ -31,9 +31,4 @@
 		width: 600px;
 		margin: 0 auto;
 	}
-
-	progress {
-		display: block;
-		width: 100%;
-	}
 </style>
