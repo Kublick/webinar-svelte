@@ -1,0 +1,20 @@
+/* Write your global styles here, in PostCSS syntax */
+@import url('https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Outfit:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	font-family: 'Hammersmith One', sans-serif;
+}
+
+.footer-text {
+	font-size: 0.6rem;
+}
+
+.text-mini {
+	font-size: 0.5rem;
+	margin-top: 0.5rem;
+	text-align: center;
+}
