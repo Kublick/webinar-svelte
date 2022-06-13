@@ -12,12 +12,17 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter(),
+		// default options are shown
+		adapter: adapter({
+			// if true, will create a Netlify Edge Function rather
+			// than using standard Node-based functions
+			edge: false,
 
-		// Override http methods in the Todo forms
-		methodOverride: {
-			allowed: ['PATCH', 'DELETE']
-		}
+			// if true, will split your app into multiple functions
+			// instead of creating a single one for the entire app.
+			// if `edge` is true, this option cannot be used
+			split: false
+		})
 	}
 };
 
